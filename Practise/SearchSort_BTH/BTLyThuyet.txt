@@ -1,0 +1,15 @@
+Câu 1: Trong các phương pháp xếp thứ tự đã học, phương pháp nào tối ưu nhất, và kém 
+tối ưu nhất? Tại sao?
+-> Tối ưu nhất: 
+- Insert sort: điều kiện là mảng gần mảng đã được sắp xếp
+- Merge sort: vì trong mọi trường hợp độ phức tạp luôn là O(nlogn)
+-> Kém tối ưu nhất: 
+Lý do chung: có độ phức tạp là O(n^2) với mọi trường hợp
+- Interchange sort
+- Selection sort 
+- Bubble sort
+
+
+Câu 2: Trong các 2 phương pháp tìm kiếm đã học, trường hợp nào thì cả 02 phương pháp 
+đều như nhau? Giải thích tại sao?
+-> Phuong

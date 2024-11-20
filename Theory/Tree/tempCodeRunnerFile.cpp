@@ -1,0 +1,1 @@
+insertNode(root,10);
