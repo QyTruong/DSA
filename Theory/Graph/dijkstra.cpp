@@ -63,90 +63,76 @@ void dijkstra(int start){
             }
         }
     }
-    // cout << d[goal] << endl;
-    // stack<int> st;
-    // while (true){
-    //     st.push(goal);
-    //     if (goal == start)
-    //         break;
-    //     goal = previous[goal];
-    // }
-    // while (!st.empty()){
-    //     cout << st.top();
-    //     st.pop();
-    //     if (!st.empty())
-    //         cout << " -> ";
-    // }
     for (int i = 1; i <= n; i++)
         cout << d[i] << " ";
 } 
 
-struct Edge {
-    int u, v;
-    int w;
-};
+// struct Edge {
+//     int u, v;
+//     int w;
+// };
 
-struct Node {
-    int u;
-    int w; // tong trong so nho nhat di tu start -> u
-};
+// struct Node {
+//     int u;
+//     int w; // tong trong so nho nhat di tu start -> u
+// };
 
-vector<vector<Edge>> edges;
-vector<int> parent;
-vector<bool> visited;
-vector<int> d;
-int n, m, start, goal;
+// vector<vector<Edge>> edges;
+// vector<int> parent;
+// vector<bool> visited;
+// vector<int> d;
+// int n, m, start, goal;
 
-void readData(){
-    ifstream f;
-    f.open("shortestpath.txt");
+// void readData(){
+//     ifstream f;
+//     f.open("shortestpath.txt");
 
-    f >> n >> m;
-    f >> start >> goal;
-    edges.resize(n + 1);
+//     f >> n >> m;
+//     f >> start >> goal;
+//     edges.resize(n + 1);
 
-    for (int i = 0; i < m; i++){
-        Edge e;
-        f >> e.u >> e.v >> e.w;
-        edges[e.u].push_back(e);
-    }
-}
+//     for (int i = 0; i < m; i++){
+//         Edge e;
+//         f >> e.u >> e.v >> e.w;
+//         edges[e.u].push_back(e);
+//     }
+// }
 
-void initData(){
-    readData();
+// void initData(){
+//     readData();
 
-    parent.resize(n + 1, -1);
-    visited.resize(n + 1, false);
+//     parent.resize(n + 1, -1);
+//     visited.resize(n + 1, false);
 
-    d.resize(n + 1, INT_MAX);
-    d[start] = 0;
-}
+//     d.resize(n + 1, INT_MAX);
+//     d[start] = 0;
+// }
 
-void dijkstra_1(){
-    auto cmp = [](Node n1, Node n2){return n1.w > n2.w;};
-    priority_queue<Node, vector<Node>, decltype(cmp)> q(cmp);
+// void dijkstra_1(){
+//     auto cmp = [](Node n1, Node n2){return n1.w > n2.w;};
+//     priority_queue<Node, vector<Node>, decltype(cmp)> q(cmp);
 
-    q.push({start, d[start]});
+//     q.push({start, d[start]});
 
-    while (!q.empty()){
-        Node x = q.top(); q.pop();
-        int u = x.u;
-        if (visited[u] == false){
-            visited[u] = true;
-        }
-        for (auto e: edges[u]){
-            int v = e.u;
-            if (d[v] > d[u] + e.w){
-                d[v] = d[u] + e.w;
-                parent[v] = u;
-            }
-        }
-    }
-}
+//     while (!q.empty()){
+//         Node x = q.top(); q.pop();
+//         int u = x.u;
+//         if (visited[u] == false){
+//             visited[u] = true;
+//         }
+//         for (auto e: edges[u]){
+//             int v = e.u;
+//             if (d[v] > d[u] + e.w){
+//                 d[v] = d[u] + e.w;
+//                 parent[v] = u;
+//             }
+//         }
+//     }
+// }
 
 int main(){
     input();
-    
+    dijkstra(1);
 
     return 0;
 }
